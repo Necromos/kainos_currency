@@ -71,12 +71,14 @@ $(document).ready(function(){
       autoclose: true
   });
 
-  d3.json('/currency/'+currencyName+'.json', function(error, data) {
-    data.forEach(function(d) {
-      d.date = parseDate(d.date);
+  if (currencyName != ''){
+    d3.json('/currency/'+currencyName+'.json', function(error, data) {
+      data.forEach(function(d) {
+        d.date = parseDate(d.date);
+      });
+      curr = data;
+      makePlot(curr);
     });
-    curr = data;
-    makePlot(curr);
-  });
+  }
 
 });

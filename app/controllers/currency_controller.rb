@@ -1,6 +1,6 @@
 class CurrencyController < ApplicationController
   def index
-    @currencies = Currency.all.group(:code, :id).order(name: :asc)
+    @currencies = Currency.all.group_by(:code).order(name: :asc)
   end
 
   def show

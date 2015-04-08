@@ -16,3 +16,4 @@
 //= require bootstrap
 //= require d3
 //= require bootstrap-datepicker
+//= require currency
