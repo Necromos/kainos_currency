@@ -62,6 +62,15 @@ $(document).ready(function(){
     makePlot(filter($('#lessThan').val(),$('#greaterThan').val()));
   });
 
+  $('.input-group.date').datepicker({
+      format: "yyyy-mm-dd",
+      weekStart: 1,
+      startDate: "2007-01-01",
+      endDate: "2014-12-31",
+      startView: 1,
+      autoclose: true
+  });
+
   d3.json('/currency/'+currencyName+'.json', function(error, data) {
     data.forEach(function(d) {
       d.date = parseDate(d.date);

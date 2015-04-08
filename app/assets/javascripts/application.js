@@ -16,14 +16,3 @@
 //= require bootstrap
 //= require d3
 //= require bootstrap-datepicker
-
-$(document).ready(function(){
-  $('.input-group.date').datepicker({
-      format: "yyyy-mm-dd",
-      weekStart: 1,
-      startDate: "2007-01-01",
-      endDate: "2014-12-31",
-      startView: 1,
-      autoclose: true
-  });
-});
