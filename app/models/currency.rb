@@ -1,0 +1,15 @@
+class Currency < ActiveRecord::Base
+
+  def average_by_code
+    Currency.where(code: self.code).average(:average_exchange_rate)
+  end
+
+  def minimum_by_code
+    Currency.where(code: self.code).minimum(:average_exchange_rate)
+  end
+
+  def maximum_by_code
+    Currency.where(code: self.code).maximum(:average_exchange_rate)
+  end
+
+end

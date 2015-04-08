@@ -1,0 +1,15 @@
+%table.table.table-striped.table-hover
+  %tr
+    %th Name
+    %th Code
+    %th Average exchange rate
+    %th Minimal exchange rate
+    %th Maximal exchange rate
+  - @currencies.each do |currency|
+    %tr
+      %td #{currency.name}
+      %td
+        = link_to currency.code, {controller: "currency", action: "show", currencyCode: currency.code}
+      %td #{'%.4f' % currency.average_by_code}
+      %td #{'%.4f' % currency.minimum_by_code}
+      %td #{'%.4f' % currency.maximum_by_code}
