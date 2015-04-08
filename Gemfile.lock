@@ -179,7 +179,6 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   byebug
-  coffee-rails (~> 4.1.0)
   d3-rails
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
