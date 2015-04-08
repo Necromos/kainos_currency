@@ -1,6 +1,7 @@
 class CurrencyController < ApplicationController
   def index
-    @currencies = Currency.select(:code).group(:code).order(name: :asc)
+    @currencies = Currency.select(:name,:code).group(:name, :code).order(name: :asc)
+    @currencies = remove_doubles @currencies
   end
 
   def show
@@ -10,4 +11,13 @@ class CurrencyController < ApplicationController
       format.json{ render :json => @currency_records }
     end
   end
+
+  private
+    def remove_doubles(currencies)
+      array = []
+      currencies.each_with_index do |currency, index|
+        array.push currency if currency.code == currencies[index+1]
+      end
+      array
+    end
 end
