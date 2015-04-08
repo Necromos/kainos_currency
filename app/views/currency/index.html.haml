@@ -1,2 +1,14 @@
-%h1 Currency#index
-%p Find me in app/views/currency/index.html.haml
+%table
+  %tr
+    %th Nazwa
+    %th Kod
+    %th Średnia kurs
+    %th Minimalny kurs
+    %th Maksymalny kurs
+  - @currencies.each do |currency|
+    %tr
+      %td #{currency.name}
+      %td #{currency.code}
+      %td #{'%.4f' % currency.average_by_name}
+      %td #{'%.4f' % currency.minimum_by_name}
+      %td #{'%.4f' % currency.maximum_by_name}
