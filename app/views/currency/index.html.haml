@@ -1,4 +1,4 @@
-%table
+%table.table.table-striped.table-hover
   %tr
     %th Nazwa
     %th Kod
@@ -10,6 +10,6 @@
       %td #{currency.name}
       %td
         = link_to currency.code, {controller: "currency", action: "show", currencyCode: currency.code}
-      %td #{'%.4f' % currency.average_by_name}
-      %td #{'%.4f' % currency.minimum_by_name}
-      %td #{'%.4f' % currency.maximum_by_name}
+      %td #{'%.4f' % currency.average_by_code}
+      %td #{'%.4f' % currency.minimum_by_code}
+      %td #{'%.4f' % currency.maximum_by_code}

@@ -1,1 +1,18 @@
 %h1= "Details of "+@currency_records[0].name
+.graph
+%form.form-inline
+  .form-group
+    %label From
+    .input-group.date
+      %input#greaterThan.form-control{type: "text", value: "2007-01-01"}
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-th
+  .form-group
+    %label To
+    .input-group.date
+      %input#lessThan.form-control{type: "text", value: "2014-12-31"}
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-th
+  %button#submit.btn.btn-primary{type: "submit"} Filter
+
+%script{type: "text/javascript", src: "/assets/currency.js"}
