@@ -16,6 +16,7 @@ class CurrencyController < ApplicationController
     def remove_doubles(currencies)
       array = []
       currencies.each_with_index do |currency, index|
+        break if currencies[index+1].nil?
         array.push currency if currency.code == currencies[index+1].code
       end
       array
