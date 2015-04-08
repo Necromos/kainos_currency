@@ -19,9 +19,24 @@ namespace :get_currency_data do
     puts "Records saved incorrectly: " + @incorrect.to_s
   end
 
+  desc 'Get all currencies data (IT WILL BE LONG PROCESS)'
+  task :all => :environment do
+    dir_file = open('http://www.nbp.pl/kursy/xml/dir.txt')
+    @correct, @incorrect = 0, 0
+    dir_file.each_line do |line|
+      if line[/\A[a][0-9]{3}z(07|08|09|10|11|12|13|14)/]
+        line = line.gsub("\n","").gsub("\r","")
+        save_data line
+      end
+    end
+    save_data last
+    puts "Records saved correctly: " + @correct.to_s
+    puts "Records saved incorrectly: " + @incorrect.to_s
+  end
+
   private
-    def save_data(last)
-      uri = "http://www.nbp.pl/kursy/xml/"+ last + ".xml"
+    def save_data(name)
+      uri = "http://www.nbp.pl/kursy/xml/"+ name + ".xml"
       puts "Current file: " + uri
       doc = Nokogiri::HTML(open(uri))
       date = doc.xpath('//data_publikacji').text.to_datetime.strftime("%Y-%m-%d")
