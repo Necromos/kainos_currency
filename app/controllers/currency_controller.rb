@@ -4,6 +4,10 @@ class CurrencyController < ApplicationController
   end
 
   def show
-    @currency = Currency.find(params[:currencyCode])
+    @currency_records = Currency.where(code: params[:currencyCode])
+    respond_to do |format|
+      format.html
+      format.json{ render :json => @currency_records }
+    end
   end
 end
