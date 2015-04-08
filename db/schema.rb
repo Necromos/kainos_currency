@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408092240) do
+ActiveRecord::Schema.define(version: 20150408112047) do
 
   create_table "currencies", force: :cascade do |t|
     t.string   "name"
     t.string   "code"
     t.integer  "conversion_rate"
-    t.decimal  "average_exchange_rate"
+    t.float    "average_exchange_rate"
     t.date     "date"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
