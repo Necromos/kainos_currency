@@ -1,5 +1,9 @@
 class Currency < ActiveRecord::Base
 
+  def name_by_code
+    Currency.where(name: self.code).first
+  end
+
   def average_by_code
     Currency.where(code: self.code).average(:average_exchange_rate)
   end
