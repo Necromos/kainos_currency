@@ -4,7 +4,7 @@ class CurrencyController < ApplicationController
   end
 
   def show
-    @currency_records = Currency.where(code: params[:currencyCode])
+    @currency_records = Currency.where(code: params[:currencyCode]).order(date: :desc)
     respond_to do |format|
       format.html
       format.json{ render :json => @currency_records }

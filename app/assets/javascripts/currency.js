@@ -58,7 +58,6 @@ $(document).ready(function(){
   }
 
   $('#submit').click(function(event){
-    console.log("hi");
     event.preventDefault();
     makePlot(filter($('#lessThan').val(),$('#greaterThan').val()));
   });

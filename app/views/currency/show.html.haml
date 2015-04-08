@@ -15,4 +15,13 @@
           %i.glyphicon.glyphicon-th
   %button#submit.btn.btn-primary{type: "submit"} Filter
 
+%table.table.table-striped.table-hover
+  %tr
+    %th Date
+    %th Exchange rate
+  - @currency_records.each do |record|
+    %tr
+      %td #{record.date}
+      %td #{record.average_exchange_rate}
+
 %script{type: "text/javascript", src: "/assets/currency.js"}
