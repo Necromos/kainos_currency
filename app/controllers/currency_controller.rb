@@ -1,6 +1,6 @@
 class CurrencyController < ApplicationController
   def index
-    @currencies = Currency.all.group(:code).order(name: :asc)
+    @currencies = Currency.all.group(:code).order(name: :asc).select("DISTINCT ON (currencies.id) *") 
   end
 
   def show
