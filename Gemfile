@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'd3-rails'
 gem 'haml-rails', '~> 0.9'
+gem 'nokogiri'
 gem 'puma'
 
 group :development, :test do
